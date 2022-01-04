@@ -1,0 +1,33 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import {View, Text, StyleSheet} from 'react-native';
+
+export default function Error({errorText1, errorText2}) {
+  return (
+    <View style={styles.errorWrapper}>
+      <Text style={styles.text}>{errorText1}</Text>
+      <Text style={styles.text}>{errorText2}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  errorWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontWeight: 'bold',
+  },
+});
+
+Error.defaultProps = {
+  errorText1: 'Oops! Somethimg went wrong.',
+  errorText2: 'Make sure you are online and restart the App.',
+};
+
+Error.propTypes = {
+  errorText1: PropTypes.string,
+  errorText2: PropTypes.string,
+};
